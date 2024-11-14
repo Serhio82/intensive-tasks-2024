@@ -38,9 +38,6 @@ jobs:
 
       - name: Run Checkstyle and Tests
         run: |
-          if [[ -n "$MODIFIED_FILES" ]]; then
-            ./gradlew checkstyleMain -PincludeFiles="$MODIFIED_FILES"
-          fi
           if [[ -n "$TEST_CLASSES" ]]; then
-            ./gradlew test --tests "$TEST_CLASSES"
+            ./gradlew checkstyleMain test --tests "$TEST_CLASSES"
           fi

@@ -21,8 +21,19 @@ public class Task1 {
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        int lastDigit = age % 10;
+        int lastTwoDigits = age % 100;
+
+        if (age < 0) {
+            return "Некорректный ввод";
+        } else if (lastDigit == 1 && lastTwoDigits != 11) {
+            return "Вам " + age + " год";
+        } else if ((lastDigit == 2 || lastDigit == 3 || lastDigit == 4) && !(lastTwoDigits >= 11 && lastTwoDigits <= 14)) {
+            return "Вам " + age + " года";
+        } else {
+            return "Вам " + age + " лет";
+        }
+
     }
 }
